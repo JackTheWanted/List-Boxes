@@ -46,13 +46,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtRemoveHero = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.btnReverseNumbers = new System.Windows.Forms.Button();
+            this.btnReverseHeroes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 20);
+            this.label1.Location = new System.Drawing.Point(-1, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 42);
             this.label1.TabIndex = 0;
@@ -80,7 +82,7 @@
             // 
             // btnSortNumbers
             // 
-            this.btnSortNumbers.Location = new System.Drawing.Point(181, 65);
+            this.btnSortNumbers.Location = new System.Drawing.Point(181, 44);
             this.btnSortNumbers.Name = "btnSortNumbers";
             this.btnSortNumbers.Size = new System.Drawing.Size(129, 23);
             this.btnSortNumbers.TabIndex = 3;
@@ -100,7 +102,7 @@
             // 
             // btnSortHeroes
             // 
-            this.btnSortHeroes.Location = new System.Drawing.Point(666, 65);
+            this.btnSortHeroes.Location = new System.Drawing.Point(663, 44);
             this.btnSortHeroes.Name = "btnSortHeroes";
             this.btnSortHeroes.Size = new System.Drawing.Size(132, 23);
             this.btnSortHeroes.TabIndex = 5;
@@ -123,6 +125,7 @@
             this.lstHeroes.Name = "lstHeroes";
             this.lstHeroes.Size = new System.Drawing.Size(267, 121);
             this.lstHeroes.TabIndex = 7;
+            this.lstHeroes.SelectedIndexChanged += new System.EventHandler(this.lstHeroes_SelectedIndexChanged);
             // 
             // btnRemoveNumber
             // 
@@ -218,11 +221,33 @@
             this.lblStatus.TabIndex = 17;
             this.lblStatus.Text = "Status:";
             // 
+            // btnReverseNumbers
+            // 
+            this.btnReverseNumbers.Location = new System.Drawing.Point(181, 65);
+            this.btnReverseNumbers.Name = "btnReverseNumbers";
+            this.btnReverseNumbers.Size = new System.Drawing.Size(129, 23);
+            this.btnReverseNumbers.TabIndex = 18;
+            this.btnReverseNumbers.Text = "Reverse Sort";
+            this.btnReverseNumbers.UseVisualStyleBackColor = true;
+            this.btnReverseNumbers.Click += new System.EventHandler(this.btnReverseNumbers_Click);
+            // 
+            // btnReverseHeroes
+            // 
+            this.btnReverseHeroes.Location = new System.Drawing.Point(663, 65);
+            this.btnReverseHeroes.Name = "btnReverseHeroes";
+            this.btnReverseHeroes.Size = new System.Drawing.Size(132, 23);
+            this.btnReverseHeroes.TabIndex = 19;
+            this.btnReverseHeroes.Text = "Reverse Sort";
+            this.btnReverseHeroes.UseVisualStyleBackColor = true;
+            this.btnReverseHeroes.Click += new System.EventHandler(this.btnReverseHeroes_Click);
+            // 
             // ListBoxes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 414);
+            this.Controls.Add(this.btnReverseHeroes);
+            this.Controls.Add(this.btnReverseNumbers);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.txtRemoveHero);
             this.Controls.Add(this.label5);
@@ -269,6 +294,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtRemoveHero;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button btnReverseNumbers;
+        private System.Windows.Forms.Button btnReverseHeroes;
     }
 }
 

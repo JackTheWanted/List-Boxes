@@ -89,20 +89,22 @@ namespace List_Boxes
 
         private void btnAddHero_Click(object sender, EventArgs e)
         {
+            
             string newHero = txtAddHero.Text.Trim();
             if (newHero != "")
             {
-                if (heroes.Contains(newHero))
+                if (heroes.Contains(newHero.ToUpper()))
                 {
                     lblStatus.Text = "Please enter a hero not already in the list";
+                    txtAddHero.Text = "";
                 }                
                 else
                 {
                     heroes.Add(newHero.ToUpper());
                     lstHeroes.DataSource = null;
-                    lstHeroes.DataSource = heroes;
-                    txtAddHero.Text = "";
+                    lstHeroes.DataSource = heroes;                    
                     lblStatus.Text = ($"New hero named {newHero} had been added");
+                    txtAddHero.Text = "";
                 }
 
             }
@@ -110,12 +112,22 @@ namespace List_Boxes
         }
 
         private void btnRemoveHero_Click(object sender, EventArgs e)
-        {           
-            heroes.Remove(txtRemoveHero.Text.ToUpper());
-            lstHeroes.DataSource = null;
-            lstHeroes.DataSource = heroes;
-            lblStatus.Text = (txtRemoveHero.Text + " has been removed");
-            txtRemoveHero.Text = "";            
+        {
+            if (heroes.Contains(txtAddHero.Text))
+            {
+                heroes.Remove(txtRemoveHero.Text.ToUpper());
+                lstHeroes.DataSource = null;
+                lstHeroes.DataSource = heroes;
+                lblStatus.Text = (txtRemoveHero.Text + " has been removed");
+                txtRemoveHero.Text = "";
+            }
+            
+            else
+            {
+                lblStatus.Text = (txtRemoveHero.Text + " does not exist in the list of current heroes");
+                txtRemoveHero.Text = "";
+            }
+
         }
 
         private void ListBoxes_Load(object sender, EventArgs e)
@@ -129,6 +141,29 @@ namespace List_Boxes
             heroes.Add("BATMAN");
             heroes.Add("SUPERMAN");
             lstHeroes.DataSource = heroes;
+        }
+
+        private void lstHeroes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReverseNumbers_Click(object sender, EventArgs e)
+        {
+            numbers.Sort();
+            numbers.Reverse();
+            lstNumbers.DataSource = null;
+            lstNumbers.DataSource = numbers;
+            lblStatus.Text = "Status; numbers sorted";
+        }
+
+        private void btnReverseHeroes_Click(object sender, EventArgs e)
+        {
+            heroes.Sort();
+            heroes.Reverse();
+            lstHeroes.DataSource = null;
+            lstHeroes.DataSource = heroes;
+            lblStatus.Text = "Status; heros sorted";
         }
     }
 }
